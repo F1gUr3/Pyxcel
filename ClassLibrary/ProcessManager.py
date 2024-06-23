@@ -29,10 +29,12 @@ class ProcessManager:
                 if new_window != None:
                     self.PushWindow(new_window)
             elif self.currentWindow.name == "Create New Sheet":
-                self.PushWindow(MainScreen()) if self.currentWindow.Back() else None
+                if self.currentWindow.Back():
+                    self.PushWindow(MainScreen())
+                else:
+                    None
 
             clear()
-            print(self.currentWindow.currentIndex)
             self.currentWindow.DisplayContent()
             time.sleep(0.1)  # Small delay to prevent high CPU usage
 

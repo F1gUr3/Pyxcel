@@ -28,8 +28,6 @@ class Screen:
         print(self.currentIndex)
         if(wayOfNavigation == "+" and self.currentIndex < len(self.menuItems)-1):
             self.currentIndex = self.currentIndex + 1
-            print(self.currentIndex)
-        elif(wayOfNavigation == "-" and self.currentIndex >= 0 ):
+        elif(wayOfNavigation == "-" and self.currentIndex > 0 ):
             self.currentIndex = self.currentIndex - 1
-            print(self.currentIndex)
 

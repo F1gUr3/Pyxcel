@@ -7,5 +7,5 @@ class CreateNewSheet(Screen):
         menuItems = ["New Sheet",  "Back"]
         super().__init__("Create New Sheet", menuItems, 0)
     def Back(self):
-        if(self.currentIndex == 1 and keyboard.read_key("enter") ):
+        if(self.currentIndex == 1 and keyboard.is_pressed("enter")):
             return True
