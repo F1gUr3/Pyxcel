@@ -1,6 +1,9 @@
 class Screen:
-    #0 -> Menu, 1 -> Sheet
-    def __init__(self, name, menuItems= [], screenType=0):
+    #screenType: (default)0 -> Menu, 1 -> Sheet
+    currentIndex = 0
+    def __init__(self, name, menuItems=None, screenType=0):
+        if menuItems is None:
+            menuItems = []
         self.name = name
         self.type = screenType
         if(self.type == 0):
@@ -9,7 +12,11 @@ class Screen:
             self.dataGrid = []
     def DisplayContent(self):
         if(self.type == 0):
-            for i in range(self.menuItems.count(self)):
+            for i in range(len(self.menuItems)):
                 print(self.menuItems[i])
+
         else:
             print("")
+    #If WayOfNavigation is + or - we are decrementing and incrementing to navigate
+    def NavigateMenu(self, wayOfNavigation):
+        pass
