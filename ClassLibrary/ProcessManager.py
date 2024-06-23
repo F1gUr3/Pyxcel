@@ -32,7 +32,7 @@ class ProcessManager:
                 if self.currentWindow.Back():
                     self.PushWindow(MainScreen())
                 else:
-                    None
+                    self.currentWindow.CreateNewSheet()
 
             clear()
             self.currentWindow.DisplayContent()
