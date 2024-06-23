@@ -28,6 +28,8 @@ class ProcessManager:
                 new_window = self.currentWindow.NewSheetPressed()
                 if new_window != None:
                     self.PushWindow(new_window)
+            elif self.currentWindow.name == "Create New Sheet":
+                self.PushWindow(MainScreen()) if self.currentWindow.Back() else None
 
             clear()
             print(self.currentWindow.currentIndex)

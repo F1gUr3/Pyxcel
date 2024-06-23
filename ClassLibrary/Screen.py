@@ -1,3 +1,5 @@
+
+
 class Screen:
     #screenType: (default)0 -> Menu, 1 -> Sheet
     def __init__(self, name, menuItems=None, screenType=0):
