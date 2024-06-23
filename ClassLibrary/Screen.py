@@ -1,7 +1,7 @@
 class Screen:
     #screenType: (default)0 -> Menu, 1 -> Sheet
-    currentIndex = 0
     def __init__(self, name, menuItems=None, screenType=0):
+        self.currentIndex = 0
         if menuItems is None:
             menuItems = []
         self.name = name
@@ -13,10 +13,21 @@ class Screen:
     def DisplayContent(self):
         if(self.type == 0):
             for i in range(len(self.menuItems)):
-                print(self.menuItems[i])
+                if(self.currentIndex == i):
+                    print("\N{ESC}[31m" + self.menuItems[i] + "\u001b[0m")
+                else:
+                    print(self.menuItems[i])
+
 
         else:
             print("")
     #If WayOfNavigation is + or - we are decrementing and incrementing to navigate
     def NavigateMenu(self, wayOfNavigation):
-        pass
+        print(self.currentIndex)
+        if(wayOfNavigation == "+" and self.currentIndex < len(self.menuItems)-1):
+            self.currentIndex = self.currentIndex + 1
+            print(self.currentIndex)
+        elif(wayOfNavigation == "-" and self.currentIndex >= 0 ):
+            self.currentIndex = self.currentIndex - 1
+            print(self.currentIndex)
+
