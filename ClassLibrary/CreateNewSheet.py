@@ -1,3 +1,5 @@
+import time
+
 from ClassLibrary.Screen import Screen
 import keyboard
 from ClassLibrary.SystemTools import clear
@@ -11,9 +13,21 @@ class CreateNewSheet(Screen):
     def Back(self):
         if(self.currentIndex == 1 and keyboard.is_pressed("enter")):
             return True
+
     def CreateNewSheet(self):
-        if(self.currentIndex == 0 and keyboard.is_pressed("enter")):
+        if self.currentIndex == 0 and keyboard.is_pressed("enter"):
             clear()
+
+            while keyboard.is_pressed("enter"):
+                time.sleep(0.1)
+
             FileName = input("Adja meg a létrehozni kívánt fájl nevét: ")
-            with open("workSheets/"+FileName + ".csv", "w") as newSheet:
+            with open("workSheets/" + FileName + ".csv", "w") as newSheet:
                 newSheet.close()
+
+            input(
+                "Fájl létrehozva. Nyomja meg az Enter billentyűt a folytatáshoz...")
+            clear()
+
+        else:
+            pass
